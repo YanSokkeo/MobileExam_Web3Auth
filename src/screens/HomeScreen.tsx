@@ -204,7 +204,14 @@ const HomeScreen = () => {
           />
         </View>
         <TouchableOpacity onPress={handlePress}>
-          <SearchBox iconName="search" placeholder="Search exam test" />
+          {/* <SearchBox iconName="search" placeholder="Search exam test" /> */}
+          <View style={styles.container2}>
+            <Icon name="search" size={30} style={styles.icon} />
+            <Text style={{ color: colors.lightGrey, fontSize: 16 }}>
+              {" "}
+              Search{" "}
+            </Text>
+          </View>
         </TouchableOpacity>
         <View style={styles.textContainer1}>
           <Text style={styles.title}>
@@ -320,6 +327,20 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: colors.backgroundWhite,
     // paddingTop: Platform.OS === "android" ? 5 : 0,
+  },
+  container2: {
+    width: "90%",
+    height: 50,
+    marginHorizontal: "5%",
+    backgroundColor: colors.white,
+    flexDirection: "row",
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  icon: {
+    color: colors.deepBlue,
+    justifyContent: "flex-end",
+    paddingHorizontal: 10,
   },
   textContainer1: {
     flex: 0.1,

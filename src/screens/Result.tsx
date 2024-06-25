@@ -125,9 +125,9 @@ const Result = ({ route }: any) => {
     <SafeAreaView style={styles.container}>
       <View style={styles.navigator}>
         <HeaderBackground
-          iconleft="menu"
-          iconfirstRight="share-2"
-          title="Result"
+          // iconleft="menu"
+          // iconfirstRight="share-2"
+          title="Your Result's Test"
           textColor={colors.white}
           backgroundColors={colors.deepBlue}
           IconColor={colors.white}
@@ -179,7 +179,8 @@ const Result = ({ route }: any) => {
                 Try again, you didn't pass the Test!
               </Text>
             )}
-            <Text style={styles.title}>Passed Point: {point}</Text>
+            <Text style={styles.note}>Noted: You must get more than 70% to pass the test.</Text>
+            <Text style={styles.title}>Your Points: {point}</Text>
 
             <TouchableOpacity onPress={handleContinue} style={styles.button}>
               <Text style={styles.text_BTN}>Continue</Text>
@@ -284,6 +285,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     color: colors.deepBlue,
+    fontFamily: "Medium",
+    textAlign: "center",
+  },
+  note: {
+    fontSize: 20,
+    color: "orange",
     fontFamily: "Medium",
     textAlign: "center",
   },

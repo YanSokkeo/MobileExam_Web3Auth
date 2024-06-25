@@ -22,8 +22,9 @@ import CustomSignIn from "../components/button/CustomSignIn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { client, signout } from "../api/Pocketbase";
 import CustomAlert from "../components/modal/CustomAlert ";
-import { useWeb3AuthContext } from "../context/web3auth";
-import { OpenloginUserInfo } from "@web3auth/react-native-sdk";
+// import { useWeb3AuthContext } from "../context/web3auth";
+// import { OpenloginUserInfo } from "@web3auth/react-native-sdk";
+import { useWalletContext } from "../context/wallet";
 
 type RootStackParamList = {
   signin: undefined;
@@ -44,7 +45,7 @@ const Profile = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [data, setData] = useState<UserModal[]>([]);
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
-  const { logout, walletClient } = useWeb3AuthContext();
+  const { logout, address, walletClient } = useWalletContext();
 
   const updateProfile = () => {
     forceUpdate();
@@ -129,7 +130,7 @@ const Profile = () => {
         <HeaderBackground
           // iconleft="menu"
           // iconfirstRight="share-2"
-          // title="Profile Details"
+          title="user Information"
           textColor={colors.white}
           backgroundColors={colors.deepBlue}
           IconColor={colors.white}
@@ -157,16 +158,19 @@ const Profile = () => {
         </ImageBackground>
         <View style={styles.card}>
           <View style={{ marginTop: 15, marginLeft: "5%" }}>
+            {/* <Text style={styles.txtG}>General</Text> */}
             <Text style={styles.txtG}>General</Text>
           </View>
-          <View style={{ marginTop: 10, marginLeft: "5%" }}>
+          {/* <View style={{ marginTop: 10, marginLeft: "5%" }}>
             <Text style={styles.txtadd}>Wallet Address</Text>
-          </View>
-          <View style={styles.txtView}>
+          </View> */}
+          {/* the address get address from walletprovider */}
+          {/* <View style={styles.txtView}>
             <Text style={styles.txtFilladd}>
               {hasUserData ? walletClient?.account?.address : "address"}
+              {address}
             </Text>
-          </View>
+          </View> */}
           <View style={{ marginTop: 10, marginLeft: "5%" }}>
             <Text style={styles.txt}>Name</Text>
           </View>
