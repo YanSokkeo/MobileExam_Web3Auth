@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   container2: {
-    height: 68,
+    height: 50,
     backgroundColor: colors.white,
     flexDirection: "row",
     borderRadius: 10,

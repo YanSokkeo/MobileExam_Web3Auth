@@ -22,6 +22,8 @@ import {
 import Constants, { AppOwnership } from "expo-constants";
 import * as Linking from "expo-linking";
 import app from "../../../app.json";
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
+// import { useWalletContext } from "../../context/wallet";
 
 type RootStackParamList = {
   register: undefined;
@@ -36,6 +38,7 @@ const SignIn = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [loading, setLoading] = useState(false);
   const { login, walletClient } = useWeb3AuthContext();
+  // const { login, getUserInfo, address } = useWalletContext();
 
   const resolvedRedirectUrl =
     Constants.appOwnership == AppOwnership.Expo ||
@@ -51,6 +54,8 @@ const SignIn = () => {
     }
   }, []);
 
+  // in this function we are handling the sign in process change from the web3authProvider to walletProvider
+
   const handleSignIn = async (provider: LOGIN_PROVIDER_TYPE) => {
     try {
       setLoading(true);
@@ -58,6 +63,7 @@ const SignIn = () => {
       const userInfo = await login(provider, {
         redirectUrl: resolvedRedirectUrl,
       });
+      // const userInfo = await getUserInfo();
       if (userInfo) {
         console.log(userInfo);
         setIsLogin(true);

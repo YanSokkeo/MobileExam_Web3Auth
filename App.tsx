@@ -5,7 +5,7 @@ import { Web3AuthProvider } from "./src/context/web3auth";
 import React from "react";
 import { useFonts } from "expo-font";
 import StackNavigator from "./src/navigation/StackNavigator";
-import { WalletProvider } from "./src/context/Wallet";
+import { WalletProvider } from "./src/context/wallet";
 
 const App = () => {
   let [fontsLoaded] = useFonts({
